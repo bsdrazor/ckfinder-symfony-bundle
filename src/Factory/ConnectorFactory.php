@@ -5,7 +5,7 @@ namespace CKSource\Bundle\CKFinderBundle\Factory;
 use CKSource\Bundle\CKFinderBundle\Authentication\AuthenticationInterface;
 use CKSource\CKFinder\CKFinder;
 use Psr\Container\ContainerInterface;
-"friendsofphp/php-cs-fixer": "^3.11",
+
 class ConnectorFactory
 {
     protected ?CKFinder $connectorInstance = null;
