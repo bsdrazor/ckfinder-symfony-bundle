@@ -10,15 +10,29 @@
  */
 
 namespace CKSource\Bundle\CKFinderBundle\Authentication;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
 class Authentication implements AuthenticationInterface
 {
-    use ContainerAwareTrait;
+    /**
+     * @var ContainerInterface
+     */
+    protected ContainerInterface $container;
+
 
     public function authenticate(): bool
     {
         return false;
+    }
+
+    /**
+     * Sets the container.
+     *
+     * @param ContainerInterface|null $container A ContainerInterface instance or null
+     */
+    public function setContainer(ContainerInterface $container = null): void
+    {
+        $this->container = $container;
     }
 }
