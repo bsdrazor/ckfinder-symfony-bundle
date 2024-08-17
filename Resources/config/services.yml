@@ -1,0 +1,27 @@
+services:
+    ckfinder.connector.auth:
+        class: '%ckfinder.connector.auth.class%'
+        public: true
+        calls:
+            - [setContainer, ['@service_container']]
+
+    ckfinder.connector.factory:
+        class: '%ckfinder.connector.factory.class%'
+        public: true
+        arguments: ['%ckfinder.connector.config%', '@ckfinder.connector.auth']
+
+    ckfinder.connector:
+        class: '%ckfinder.connector.class%'
+        factory: ['@ckfinder.connector.factory', 'getConnector']
+        public: true
+
+    CKSource\Bundle\CKFinderBundle\Command\CKFinderDownloadCommand:
+        tags:
+            - { name: console.command }
+
+    CKSource\Bundle\CKFinderBundle\Controller\CKFinderController:
+        public: true
+        calls: [['setContainer', ['@Psr\Container\ContainerInterface']]]
+        tags:
+            - { name: 'container.service_subscriber' }
+            - { name: 'container.service_subscriber', key: 'ckfinder.connector', id: 'ckfinder.connector' }
