@@ -9,7 +9,7 @@ If you're looking for bundle for older version of Symfony, please use [version 3
 1. Add Composer dependency and install the bundle.
 
     ```bash
-    composer require ckfinder/ckfinder-symfony-bundle
+    composer require bsdrazor/ckfinder-symfony-bundle
     ```
 
 2. Run the command to download the CKFinder distribution package.
