@@ -11,7 +11,6 @@
 
 namespace CKSource\Bundle\CKFinderBundle\Authentication;
 
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
 /**
  * Interface for the CKFinder authentication service.
